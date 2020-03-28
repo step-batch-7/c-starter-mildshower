@@ -11,6 +11,7 @@ float find_simple_interest(float, float, float);
 float find_compound_interest(float, float, int);
 float fahrenheit_to_centigrade(float);
 float centigrade_to_fahrenheit(float);
+float find_largest(float, float, float);
 
 unsigned char is_even(int num)
 {
@@ -69,11 +70,18 @@ float centigrade_to_fahrenheit(float temperature)
   return (temperature * 9 / 5) + 32;
 }
 
+float find_largest(float num1, float num2, float num3)
+{
+  float largest_of_2 = num1 > num2 ? num1 : num2;
+  return largest_of_2 > num3 ? largest_of_2 : num3;
+}
+
 int main(void)
 {
   int num1, num2, num3, num4;
   unsigned num5, num6;
   float principal, interest_rate, duration, temperature1, temperature2;
+  float num7, num8, num9;
 
   printf("Enter a number to check whether it is even or not: ");
   scanf("%d",&num1);
@@ -112,6 +120,10 @@ int main(void)
   printf("Enter a temperature in Centigrade to convert into Fahrenheit: ");
   scanf("%f",&temperature2);
   printf("%.3f°C = %.3f°F\n\n",temperature2,centigrade_to_fahrenheit(temperature2));
+
+  printf("Enter 3 numbers to find the largest one (separating by space): ");
+  scanf("%f%f%f",&num7,&num8,&num9);
+  printf("Largest among %.3f, %.3f and %.3f is: %.3f",num7,num8,num9,find_largest(num7,num8,num9));
 
   return 0;
 }
