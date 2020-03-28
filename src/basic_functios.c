@@ -4,26 +4,46 @@ unsigned char is_even(int);
 unsigned char is_odd(int);
 long square(int);
 long cube(int);
+unsigned int gcd(unsigned int, unsigned int);
 
-unsigned char is_even(int num){
+unsigned char is_even(int num)
+{
   return num % 2 == 0;
 }
 
-unsigned char is_odd(int num){
+unsigned char is_odd(int num)
+{
   return !is_even(num);
 }
 
-long square(int num){
+long square(int num)
+{
   return (long)num * num;
 }
 
-long cube(int num){
+long cube(int num)
+{
   return square(num) * num;
+}
+
+unsigned int gcd(unsigned int num1, unsigned int num2)
+{
+  unsigned quotient;
+  unsigned divisor = num1 < num2 ? num1 : num2;
+  unsigned divident = num1 > num2 ? num1 : num2;
+  while(divident % divisor != 0)
+  {
+    quotient = divident % divisor;
+    divident = divisor;
+    divisor = quotient;
+  }
+  return divisor;
 }
 
 int main(void)
 {
   int num1, num2, num3, num4;
+  int num5, num6;
 
   printf("Enter a number to check whether it is even or not: ");
   scanf("%d",&num1);
@@ -40,6 +60,10 @@ int main(void)
   printf("Enter a number to find cube: ");
   scanf("%d",&num4);
   printf("Cube of entered number %d is %ld\n\n",num4,cube(num4));
+
+  printf("Enter two numbers to find GCD (separate by space): ");
+  scanf("%d %d",&num5,&num6);
+  printf("GCD of %u and %u is: %u\n\n",num5,num6,gcd(num5,num6));
 
   return 0;
 }
