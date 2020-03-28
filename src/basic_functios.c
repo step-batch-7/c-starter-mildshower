@@ -5,6 +5,7 @@ unsigned char is_odd(int);
 long square(int);
 long cube(int);
 unsigned int gcd(unsigned int, unsigned int);
+unsigned long lcm(unsigned int, unsigned int);
 
 unsigned char is_even(int num)
 {
@@ -31,10 +32,16 @@ unsigned gcd(unsigned num1, unsigned num2)
   unsigned divident = num1 > num2 ? num1 : num2;
   unsigned divisor = num1 < num2 ? num1 : num2;
   unsigned quotient = divident % divisor;
-  if(!quotient){
+  if(!quotient)
+  {
     return divisor;
   }
   return gcd(divisor, quotient);
+}
+
+unsigned long lcm(unsigned num1, unsigned num2)
+{
+  return ((unsigned long)num1 * num2) / gcd(num1, num2);
 }
 
 int main(void)
@@ -45,22 +52,23 @@ int main(void)
   printf("Enter a number to check whether it is even or not: ");
   scanf("%d",&num1);
   printf("Your Entered Number %d is %s\n\n",num1,is_even(num1)?"Even":"Not Even");
-
+ 
   printf("Enter a number to check whether it is odd or not: ");
   scanf("%d",&num2);
   printf("Your Entered Number %d is %s\n\n",num2,is_odd(num2)?"Odd":"Not Odd");
-
+ 
   printf("Enter a number to find square: ");
   scanf("%d",&num3);
   printf("Square of entered number %d is %ld\n\n",num3,square(num3));
-
+ 
   printf("Enter a number to find cube: ");
   scanf("%d",&num4);
   printf("Cube of entered number %d is %ld\n\n",num4,cube(num4));
 
-  printf("Enter two numbers to find GCD (separate by space): ");
+  printf("Enter two numbers to find GCD and LCM (separate by space): ");
   scanf("%d %d",&num5,&num6);
   printf("GCD of %u and %u is: %u\n\n",num5,num6,gcd(num5,num6));
+  printf("LCM of %u and %u is: %lu\n\n",num5,num6,lcm(num5,num6));
 
   return 0;
 }
