@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 unsigned char is_even(int);
 unsigned char is_odd(int);
@@ -7,6 +8,7 @@ long cube(int);
 unsigned int gcd(unsigned int, unsigned int);
 unsigned long lcm(unsigned int, unsigned int);
 float find_simple_interest(float, float, float);
+float find_compound_interest(float, float, int);
 
 unsigned char is_even(int num)
 {
@@ -50,6 +52,11 @@ float find_simple_interest(float principal, float interest_rate, float duration)
   return (principal * interest_rate * duration) / 100;
 }
 
+float find_compound_interest(float principal, float interest_rate, int duration)
+{
+  return principal*pow((1+interest_rate/100),duration) - principal;
+}
+
 int main(void)
 {
   int num1, num2, num3, num4;
@@ -83,7 +90,8 @@ int main(void)
   scanf("%f", &interest_rate);
   printf("Enter Duration: ");
   scanf("%f", &duration);
-  printf("Simple Interest of %.3f at %.3f%%/year for %.3f year(s) is: %.3f\n\n",principal,interest_rate,duration,find_simple_interest(principal,interest_rate,duration));
+  printf("Simple Interest of %.3f at %.3f%%/year for %.3f year(s) is: %.3f\n",principal,interest_rate,duration,find_simple_interest(principal,interest_rate,duration));
+  printf("Compound Interest of %.3f at %.3f%%/year for %.3f year(s) is: %.3f\n\n",principal,interest_rate,duration,find_compound_interest(principal,interest_rate,(int)duration));
 
   return 0;
 }
