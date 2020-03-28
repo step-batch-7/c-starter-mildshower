@@ -129,8 +129,8 @@ int main(void)
 
   printf("Enter 3 numbers to find average and the largest one (separating by space): ");
   scanf("%f%f%f",&num7,&num8,&num9);
-  printf("Largest among %.3f, %.3f and %.3f is: %.3f",num7,num8,num9,find_largest(num7,num8,num9));
-  printf("Average of %.3f, %.3f and %.3f is: %.3f",num7,num8,num9,find_average(num7,num8,num9));
+  printf("Largest among %.3f, %.3f and %.3f is: %.3f\n",num7,num8,num9,find_largest(num7,num8,num9));
+  printf("Average of %.3f, %.3f and %.3f is: %.3f\n\n",num7,num8,num9,find_average(num7,num8,num9));
 
   return 0;
 }
