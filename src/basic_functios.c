@@ -26,18 +26,15 @@ long cube(int num)
   return square(num) * num;
 }
 
-unsigned int gcd(unsigned int num1, unsigned int num2)
+unsigned gcd(unsigned num1, unsigned num2)
 {
-  unsigned quotient;
-  unsigned divisor = num1 < num2 ? num1 : num2;
   unsigned divident = num1 > num2 ? num1 : num2;
-  while(divident % divisor != 0)
-  {
-    quotient = divident % divisor;
-    divident = divisor;
-    divisor = quotient;
+  unsigned divisor = num1 < num2 ? num1 : num2;
+  unsigned quotient = divident % divisor;
+  if(!quotient){
+    return divisor;
   }
-  return divisor;
+  return gcd(divisor, quotient);
 }
 
 int main(void)
