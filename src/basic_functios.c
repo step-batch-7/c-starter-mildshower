@@ -3,6 +3,7 @@
 unsigned char is_even(int);
 unsigned char is_odd(int);
 long square(int);
+long cube(int);
 
 unsigned char is_even(int num){
   return num % 2 == 0;
@@ -16,9 +17,13 @@ long square(int num){
   return (long)num * num;
 }
 
+long cube(int num){
+  return square(num) * num;
+}
+
 int main(void)
 {
-  int num1, num2, num3;
+  int num1, num2, num3, num4;
 
   printf("Enter a number to check whether it is even or not: ");
   scanf("%d",&num1);
@@ -31,6 +36,10 @@ int main(void)
   printf("Enter a number to find square: ");
   scanf("%d",&num3);
   printf("Square of entered number %d is %ld\n\n",num3,square(num3));
+
+  printf("Enter a number to find cube: ");
+  scanf("%d",&num4);
+  printf("Cube of entered number %d is %ld\n\n",num4,cube(num4));
 
   return 0;
 }
