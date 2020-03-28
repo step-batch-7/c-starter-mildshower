@@ -12,6 +12,7 @@ float find_compound_interest(float, float, int);
 float fahrenheit_to_centigrade(float);
 float centigrade_to_fahrenheit(float);
 float find_largest(float, float, float);
+float find_average(float, float, float);
 
 unsigned char is_even(int num)
 {
@@ -76,6 +77,11 @@ float find_largest(float num1, float num2, float num3)
   return largest_of_2 > num3 ? largest_of_2 : num3;
 }
 
+float find_average(float num1, float num2, float num3)
+{
+  return (num1 + num2 + num3) / 3;
+}
+
 int main(void)
 {
   int num1, num2, num3, num4;
@@ -121,9 +127,10 @@ int main(void)
   scanf("%f",&temperature2);
   printf("%.3f°C = %.3f°F\n\n",temperature2,centigrade_to_fahrenheit(temperature2));
 
-  printf("Enter 3 numbers to find the largest one (separating by space): ");
+  printf("Enter 3 numbers to find average and the largest one (separating by space): ");
   scanf("%f%f%f",&num7,&num8,&num9);
   printf("Largest among %.3f, %.3f and %.3f is: %.3f",num7,num8,num9,find_largest(num7,num8,num9));
+  printf("Average of %.3f, %.3f and %.3f is: %.3f",num7,num8,num9,find_average(num7,num8,num9));
 
   return 0;
 }
