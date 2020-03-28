@@ -9,6 +9,7 @@ unsigned int gcd(unsigned int, unsigned int);
 unsigned long lcm(unsigned int, unsigned int);
 float find_simple_interest(float, float, float);
 float find_compound_interest(float, float, int);
+float fahrenheit_to_centigrade(float);
 
 unsigned char is_even(int num)
 {
@@ -57,11 +58,16 @@ float find_compound_interest(float principal, float interest_rate, int duration)
   return principal*pow((1+interest_rate/100),duration) - principal;
 }
 
+float fahrenheit_to_centigrade(float temperature)
+{
+  return (temperature - 32) * 5 / 9;
+}
+
 int main(void)
 {
   int num1, num2, num3, num4;
   unsigned num5, num6;
-  float principal, interest_rate, duration;
+  float principal, interest_rate, duration, temperature1;
 
   printf("Enter a number to check whether it is even or not: ");
   scanf("%d",&num1);
@@ -92,6 +98,10 @@ int main(void)
   scanf("%f", &duration);
   printf("Simple Interest of %.3f at %.3f%%/year for %.3f year(s) is: %.3f\n",principal,interest_rate,duration,find_simple_interest(principal,interest_rate,duration));
   printf("Compound Interest of %.3f at %.3f%%/year for %.3f year(s) is: %.3f\n\n",principal,interest_rate,duration,find_compound_interest(principal,interest_rate,(int)duration));
+
+  printf("Enter a temperature in Fahrenheit to convert into Centigrade: ");
+  scanf("%f",&temperature1);
+  printf("%.3f°F = %.3f°C",temperature1,fahrenheit_to_centigrade(temperature1));
 
   return 0;
 }
