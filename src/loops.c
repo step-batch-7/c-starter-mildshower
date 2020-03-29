@@ -6,6 +6,7 @@ void print_odd_series(unsigned);
 void print_even_series(unsigned);
 void print_multiplication_table(unsigned, unsigned);
 long get_sum_of_numbers(int, unsigned);
+long get_product_of_numbers(int, unsigned);
 
 unsigned long find_factorial(unsigned num)
 {
@@ -64,6 +65,16 @@ long get_sum_of_numbers(int start_num, unsigned number_count)
   return sum;
 }
 
+long get_product_of_numbers(int start_num, unsigned number_count)
+{
+  long product = 1;
+  for(int curr_num = start_num; curr_num < start_num + number_count; curr_num++)
+  {
+    product *= curr_num;
+  }
+  return product;
+}
+
 int main()
 {
   unsigned num1, num2, num3, num4, element_count, upper_limit;
@@ -88,9 +99,10 @@ int main()
   scanf("%u",&num3);
   print_multiplication_table(num2, num3);
 
-  printf("Enter starting number and numbers count separated by space: ");
+  printf("\nEnter starting number and numbers count separated by space: ");
   scanf("%d%u",&start_num,&num4);
-  printf("Sum of %u number(s) starting from %d is: %ld",num4,start_num,get_sum_of_numbers(start_num,num4));
+  printf("Sum of %u number(s) starting from %d is: %ld\n",num4,start_num,get_sum_of_numbers(start_num,num4));
+  printf("Product of %u number(s) starting from %d is: %ld\n",num4,start_num,get_product_of_numbers(start_num,num4));
 
   return 0;
 }
