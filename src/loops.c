@@ -8,6 +8,7 @@ void print_multiplication_table(unsigned, unsigned);
 long get_sum_of_numbers(int, unsigned);
 long get_product_of_numbers(int, unsigned);
 void print_odd_numbers(int, int);
+void print_nth_numbers(int, int, int);
 
 unsigned long find_factorial(unsigned num)
 {
@@ -85,10 +86,19 @@ void print_odd_numbers(int start_num, int end_num)
   }
 }
 
+void print_nth_numbers(int start_num, int end_num, int increment)
+{
+  printf("%dth Numbers between %d and %d(inclusive)--\n",increment,start_num,end_num);
+  for(int curr_num = start_num; curr_num <= end_num; curr_num += increment)
+  {
+    printf("%d\n",curr_num);
+  }
+}
+
 int main()
 {
   unsigned num1, num2, num3, num4, element_count, upper_limit;
-  int start_num, num5, num6;
+  int start_num, num5, num6, num7, num8, num9;
   
   printf("Enter a number to find factorial: ");
   scanf("%u",&num1);
@@ -117,6 +127,12 @@ int main()
   printf("Enter start and end number for odds (separated by space): ");
   scanf("%d%d",&num5,&num6);
   print_odd_numbers(num5, num6);
+
+  printf("\nEnter start and end number for nth numbers (separated by space): ");
+  scanf("%d%d",&num7,&num8);
+  printf("Enter jump between numbers: ");
+  scanf("%d",&num9);
+  print_nth_numbers(num7, num8, num9);
 
   return 0;
 }
