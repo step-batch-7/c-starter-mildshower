@@ -4,6 +4,7 @@ unsigned long find_factorial(unsigned);
 void print_fibonacci(unsigned);
 void print_odd_series(unsigned);
 void print_even_series(unsigned);
+void print_multiplication_table(unsigned, unsigned);
 
 unsigned long find_factorial(unsigned num)
 {
@@ -43,9 +44,18 @@ void print_even_series(unsigned limit)
   }
 }
 
+void print_multiplication_table(unsigned multiplicand, unsigned multiplierLimit)
+{
+  printf("Multiplication Table of %u upto %u--\n",multiplicand,multiplierLimit);
+  for(unsigned multiplier = 1; multiplier <= multiplierLimit; multiplier++)
+  {
+    printf("%u x %u = %lu\n", multiplicand, multiplier, (unsigned long)multiplicand * multiplier);
+  }
+}
+
 int main()
 {
-  unsigned num1, elementCount, upperLimit;
+  unsigned num1, num2, num3, elementCount, upperLimit;
   
   printf("Enter a number to find factorial: ");
   scanf("%u",&num1);
@@ -59,6 +69,12 @@ int main()
   scanf("%u",&upperLimit);
   print_odd_series(upperLimit);
   print_even_series(upperLimit);
+
+  printf("\nEnter Multiplicand: ");
+  scanf("%u",&num2);
+  printf("Enter Multiplier limit: ");
+  scanf("%u",&num3);
+  print_multiplication_table(num2, num3);
 
   return 0;
 }
