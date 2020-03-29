@@ -3,6 +3,7 @@
 unsigned long find_factorial(unsigned);
 void print_fibonacci(unsigned);
 void print_odd_series(unsigned);
+void print_even_series(unsigned);
 
 unsigned long find_factorial(unsigned num)
 {
@@ -17,6 +18,7 @@ unsigned long find_factorial(unsigned num)
 void print_fibonacci(unsigned elementCount)
 {
   unsigned long prev = 0, next = 1;
+  printf("%u fibonacci element(s)--\n",elementCount);
   for(; elementCount > 0; elementCount--)
   {
     printf("%lu\n", prev);
@@ -27,8 +29,17 @@ void print_fibonacci(unsigned elementCount)
 
 void print_odd_series(unsigned limit)
 {
+  printf("Odd numbers between 1 and %u(inclusive)--\n",limit);
   for(unsigned odd = 1; odd <= limit; odd += 2){
     printf("%u\n", odd);
+  }
+}
+
+void print_even_series(unsigned limit)
+{
+  printf("Even numbers between 1 and %u(inclusive)--\n",limit);
+  for(unsigned even = 2; even <= limit; even += 2){
+    printf("%u\n", even);
   }
 }
 
@@ -44,9 +55,10 @@ int main()
   scanf("%u",&elementCount);
   print_fibonacci(elementCount);
 
-  printf("\nEnter upper limit to see Odd numbers: ");
+  printf("\nEnter upper limit to see Odd and Even numbers: ");
   scanf("%u",&upperLimit);
   print_odd_series(upperLimit);
+  print_even_series(upperLimit);
 
   return 0;
 }
