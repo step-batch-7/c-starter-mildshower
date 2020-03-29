@@ -10,6 +10,7 @@ long get_product_of_numbers(int, unsigned);
 void print_odd_numbers(int, int);
 void print_nth_numbers(int, int, int);
 long get_sum_of_evens(int, int);
+void print_reverse_odds(unsigned);
 
 unsigned long find_factorial(unsigned num)
 {
@@ -105,9 +106,18 @@ long get_sum_of_evens(int start_num, int end_num){
   return sum;
 }
 
+void print_reverse_odds(unsigned start_num)
+{
+  printf("Odd numbers in reverse from %u to 1(inclusive)--\n",start_num);
+  for(int odd = start_num % 2 != 0 ? start_num : start_num - 1; odd > 0; odd -= 2)
+  {
+    printf("%u\n",odd);
+  }
+}
+
 int main()
 {
-  unsigned num1, num2, num3, num4, element_count, upper_limit;
+  unsigned num1, num2, num3, num4, num12, element_count, upper_limit;
   int start_num, num5, num6, num7, num8, num9, num10, num11;
   
   printf("Enter a number to find factorial: ");
@@ -147,6 +157,10 @@ int main()
   printf("\nEnter start and end number for even sum (separated by space): ");
   scanf("%d%d",&num10,&num11);
   printf("Sum of evens between %d and %d(inclusive): %ld\n\n",num10,num11,get_sum_of_evens(num10,num11));
+
+  printf("Enter starting number for reverse odds: ");
+  scanf("%u",&num12);
+  print_reverse_odds(num12);
 
   return 0;
 }
