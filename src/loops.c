@@ -90,29 +90,29 @@ int main()
   unsigned num1, num2, num3, num4, element_count, upper_limit;
   int start_num, num5, num6;
   
-  //printf("Enter a number to find factorial: ");
-  //scanf("%u",&num1);
-  //printf("Factorial of %u is: %lu\n\n",num1,find_factorial(num1));
-//
-  //printf("Enter how many fibonacci elements you want: ");
-  //scanf("%u",&element_count);
-  //print_fibonacci(element_count);
-//
-  //printf("\nEnter upper limit to see Odd and Even numbers: ");
-  //scanf("%u",&upper_limit);
-  //print_odd_series(upper_limit);
-  //print_even_series(upper_limit);
-//
-  //printf("\nEnter Multiplicand: ");
-  //scanf("%u",&num2);
-  //printf("Enter Multiplier limit: ");
-  //scanf("%u",&num3);
-  //print_multiplication_table(num2, num3);
-//
-  //printf("\nEnter starting number and numbers count separated by space: ");
-  //scanf("%d%u",&start_num,&num4);
-  //printf("Sum of %u number(s) starting from %d is: %ld\n",num4,start_num,get_sum_of_numbers(start_num,num4));
-  //printf("Product of %u number(s) starting from %d is: %ld\n\n",num4,start_num,get_product_of_numbers(start_num,num4));
+  printf("Enter a number to find factorial: ");
+  scanf("%u",&num1);
+  printf("Factorial of %u is: %lu\n\n",num1,find_factorial(num1));
+
+  printf("Enter how many fibonacci elements you want: ");
+  scanf("%u",&element_count);
+  print_fibonacci(element_count);
+
+  printf("\nEnter upper limit to see Odd and Even numbers: ");
+  scanf("%u",&upper_limit);
+  print_odd_series(upper_limit);
+  print_even_series(upper_limit);
+
+  printf("\nEnter Multiplicand: ");
+  scanf("%u",&num2);
+  printf("Enter Multiplier limit: ");
+  scanf("%u",&num3);
+  print_multiplication_table(num2, num3);
+
+  printf("\nEnter starting number and numbers count separated by space: ");
+  scanf("%d%u",&start_num,&num4);
+  printf("Sum of %u number(s) starting from %d is: %ld\n",num4,start_num,get_sum_of_numbers(start_num,num4));
+  printf("Product of %u number(s) starting from %d is: %ld\n\n",num4,start_num,get_product_of_numbers(start_num,num4));
 
   printf("Enter start and end number for odds (separated by space): ");
   scanf("%d%d",&num5,&num6);
