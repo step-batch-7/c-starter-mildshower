@@ -2,6 +2,7 @@
 
 unsigned long find_factorial(unsigned);
 void print_fibonacci(unsigned);
+void print_odd_series(unsigned);
 
 unsigned long find_factorial(unsigned num)
 {
@@ -24,9 +25,16 @@ void print_fibonacci(unsigned elementCount)
   }
 }
 
+void print_odd_series(unsigned limit)
+{
+  for(unsigned odd = 1; odd <= limit; odd += 2){
+    printf("%u\n", odd);
+  }
+}
+
 int main()
 {
-  unsigned num1, elementCount;
+  unsigned num1, elementCount, upperLimit;
   
   printf("Enter a number to find factorial: ");
   scanf("%u",&num1);
@@ -35,6 +43,10 @@ int main()
   printf("Enter how many fibonacci elements you want: ");
   scanf("%u",&elementCount);
   print_fibonacci(elementCount);
+
+  printf("\nEnter upper limit to see Odd numbers: ");
+  scanf("%u",&upperLimit);
+  print_odd_series(upperLimit);
 
   return 0;
 }
