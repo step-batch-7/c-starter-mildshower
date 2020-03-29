@@ -9,6 +9,7 @@ long get_sum_of_numbers(int, unsigned);
 long get_product_of_numbers(int, unsigned);
 void print_odd_numbers(int, int);
 void print_nth_numbers(int, int, int);
+long get_sum_of_evens(int, int);
 
 unsigned long find_factorial(unsigned num)
 {
@@ -95,10 +96,19 @@ void print_nth_numbers(int start_num, int end_num, int increment)
   }
 }
 
+long get_sum_of_evens(int start_num, int end_num){
+  long sum = 0;
+  for(int even = start_num % 2 == 0 ? start_num : start_num + 1; even <= end_num; even += 2)
+  {
+    sum += even;
+  }
+  return sum;
+}
+
 int main()
 {
   unsigned num1, num2, num3, num4, element_count, upper_limit;
-  int start_num, num5, num6, num7, num8, num9;
+  int start_num, num5, num6, num7, num8, num9, num10, num11;
   
   printf("Enter a number to find factorial: ");
   scanf("%u",&num1);
@@ -133,6 +143,10 @@ int main()
   printf("Enter jump between numbers: ");
   scanf("%d",&num9);
   print_nth_numbers(num7, num8, num9);
+
+  printf("\nEnter start and end number for even sum (separated by space): ");
+  scanf("%d%d",&num10,&num11);
+  printf("Sum of evens between %d and %d(inclusive): %ld\n\n",num10,num11,get_sum_of_evens(num10,num11));
 
   return 0;
 }
